@@ -18,3 +18,7 @@
 @import url(../blocks/pictures/pictures.css);
 @import url(../blocks/pictures/__item/pictures__item.css);
 @import url(../blocks/pictures/__list/pictures__list.css);
+@import url(../blocks/pictures/__back/pictures__back.css);
+@import url(../blocks/pictures/__title/pictures__title.css);
+@import url(../blocks/pictures/__heart/pictures__heart.css);
+@import url(../blocks/pictures/__cover/pictures__cover.css);

@@ -1,0 +1,11 @@
+.pictures_heart {
+  background-image: url(../../../../images/heart.svg);
+  width: 22px;
+  height: 19px;
+  background-color: white;
+  background-position: center;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-size: cover;
+}
