@@ -1,0 +1,9 @@
+.pictures__list {
+  list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+section {
+  border: 1px solid red;
+}

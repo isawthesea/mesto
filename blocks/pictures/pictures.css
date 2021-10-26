@@ -1,0 +1,9 @@
+.pictures {
+  margin: 0 auto;
+  max-width: 880px;
+  display: grid;
+  gap: 20px 17px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-content: center;
+}
