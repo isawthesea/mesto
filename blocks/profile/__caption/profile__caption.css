@@ -1,10 +1,12 @@
 .profile__caption {
   margin: 0;
-  max-width: 336px;
-  font-family: 'Inter';
-  color: white;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+  color: #FFFFFF;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 10px;
 }
