@@ -2,11 +2,16 @@
   background-image: url(../../../../images/heart.svg);
   width: 22px;
   height: 19px;
-  background-color: white;
+  background-color: transparent;
   background-position: center;
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
   border-radius: 2px;
   background-size: cover;
   border: none;
+}
+
+.pictures_like:hover {
+  opacity: .5;
+  cursor: pointer;
 }
