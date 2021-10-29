@@ -15,6 +15,9 @@
   </header>
   <main>
 
+
+
+
     <section class="profile">
       <div class="profile__avatar-cover">
         <img class="profile__avatar" src="./images/avatar.png" alt="Изображение пользователя">
@@ -29,6 +32,8 @@
       </div>
       <button type="button" class="profile__add-button"></button>
     </section>
+
+
 
     <section class="pictures">
       <ul class="pictures__list">
@@ -89,6 +94,21 @@
     <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
   </footer>
 
+  <div class="popup">
+    <section class="popup__container">
+      <button class="popup__close-button" aria-label="Закрыть окно"></button>
+      <section class="popup__content">
+        <h3 class="popup__header">Редактировать профиль</h3>
+        <form class="input">
+          <input class="input__text input__text_type_name" type="text" placeholder="Имя">
+          <input class="input__text input__text_type_caption" type="text" placeholder="Подпись">
+        </form>
+        <button>Сохранить</button>
+      </section>
+    </section>
+  </div>
+
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
