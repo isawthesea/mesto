@@ -16,3 +16,9 @@
   opacity: .5;
   cursor: pointer;
 }
+
+/* @media screen and (max-width: 425px) {
+.profile__add-button {
+    max-width: 282px;
+    width: 100%;
+} */
