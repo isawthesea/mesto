@@ -11,3 +11,10 @@
   width: 358px;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 580px) {
+  .input__text_type_name {
+    width: 238px;
+    margin-left: 22px;
+  }
+}
