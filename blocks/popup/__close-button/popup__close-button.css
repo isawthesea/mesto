@@ -8,9 +8,18 @@
   left: 438px;
   bottom: 338px;
   cursor: pointer;
+  background-size: contain;
 }
 
 .popup__close-button:hover {
   opacity: .5;
   cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 580px) {
+  .popup__close-button {
+    width: 20px;
+    height: 20px;
+    left: 263px;
+  }
 }
