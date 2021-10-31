@@ -9,14 +9,11 @@
   outline-color: transparent;
   padding-top: 30px;
   padding-bottom: 9px;
-
 }
 
 @media screen and (max-width: 580px) {
   .input__text_type_caption {
     width: 238px;
     margin-left: 22px;
-    padding-top: 38px;
   }
 }
-

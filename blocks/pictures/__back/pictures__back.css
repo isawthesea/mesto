@@ -1,11 +1,6 @@
 .pictures_back {
-  /* background-color: white;
-  max-width: 282px;
-
-  border-radius: 10px; */
-
   background-color: #fff;
-    border-radius: 10px;
-    max-width: 282px;
-    height: 361px;
+  border-radius: 10px;
+  max-width: 282px;
+  height: 361px;
 }

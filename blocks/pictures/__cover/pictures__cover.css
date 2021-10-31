@@ -1,21 +1,10 @@
 .pictures__cover {
-  /* align-items: center;
-    background-color: #fff;
-    border-radius: 0 0 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 31px;
-    margin-top: 25px;
-    width: 282px;
-    height: 23px; */
-
-    align-items: center;
-    background-color: #fff;
-    border-radius: 0 0 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    max-width: 240px;
-    height: 23px;
-    margin: 25px 15px 31px 21px;
-
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 240px;
+  height: 23px;
+  margin: 25px 15px 31px 21px;
 }

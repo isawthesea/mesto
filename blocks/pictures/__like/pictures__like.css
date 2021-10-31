@@ -9,15 +9,9 @@
   border-radius: 2px;
   background-size: cover;
   border: none;
+  cursor: pointer;
 }
 
 .pictures_like:hover {
   opacity: .5;
-  cursor: pointer;
 }
-
-/* .pictures_like:after {
-  content: 'background-image';
-  background-image: url(../../../../images/heart-black.svg);
-
-} */
