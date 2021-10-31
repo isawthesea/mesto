@@ -1,4 +1,4 @@
-.form__text_type_caption {
+.popup__form_text_type_caption {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 580px) {
-  .form__text_type_caption {
+  .popup__form_text_type_caption {
     width: 238px;
     margin-left: 22px;
   }
