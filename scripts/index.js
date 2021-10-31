@@ -12,7 +12,7 @@ closeButton.addEventListener('click', function() {
 
 
 // Находим форму в DOM
-let formElement = document.querySelector('.form')
+let formElement = document.querySelector('.popup__form')
 // Находим поля формы в DOM
 let nameInput = formElement.querySelector('.form__text_type_name')
 let jobInput = formElement.querySelector('.form__text_type_caption')
