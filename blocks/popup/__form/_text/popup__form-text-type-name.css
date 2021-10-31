@@ -1,4 +1,4 @@
-.popup__form_text_type_name {
+.popup__form-text-type-name {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 580px) {
-  .popup__form_text_type_name {
+  .popup__form-text-type-name {
     width: 238px;
     margin-left: 22px;
   }
