@@ -4,13 +4,12 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  opacity: 0.2;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   outline-color: transparent;
-  padding-top: 40px;
-  width: 358px;
-  box-sizing: border-box;
+  padding-top: 30px;
+  padding-bottom: 9px;
+
 }
 
 @media screen and (max-width: 580px) {
@@ -20,3 +19,4 @@
     padding-top: 38px;
   }
 }
+

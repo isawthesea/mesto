@@ -4,12 +4,11 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  opacity: 0.2;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   outline-color: transparent;
-  width: 358px;
-  box-sizing: border-box;
+  padding-bottom: 8px;
+
 }
 
 @media screen and (max-width: 580px) {
