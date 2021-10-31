@@ -1,4 +1,4 @@
-.input__text_type_name {
+.form__text_type_name {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 580px) {
-  .input__text_type_name {
+  .form__text_type_name {
     width: 238px;
     margin-left: 22px;
   }
