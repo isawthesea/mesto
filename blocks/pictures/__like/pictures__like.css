@@ -1,4 +1,4 @@
-.pictures_like {
+.pictures__like {
   background-image: url(../../../../images/heart.svg);
   width: 22px;
   height: 19px;
@@ -11,6 +11,6 @@
   cursor: pointer;
 }
 
-.pictures_like:hover {
+.pictures__like:hover {
   opacity: .5;
 }
