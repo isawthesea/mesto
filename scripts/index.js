@@ -9,23 +9,26 @@ const formElement = document.querySelector('.popup__form')
 const nameInput = formElement.querySelector('.popup__form-text-type-name')
 const jobInput = formElement.querySelector('.popup__form-text-type-caption')
 
-openPopup.addEventListener('click', function() {
+function openPopupHandler() {
   nameInput.value = nameItem.textContent;
   jobInput.value = captionItem.textContent;
   popupItem.classList.add('popup_opened');
-})
+}
 
-closeButton.addEventListener('click', function() {
+function closePopupHandler() {
   popupItem.classList.remove('popup_opened');
-})
+}
 
-function formSubmitHandler (evt) {
+openPopup.addEventListener('click', openPopupHandler);
+closeButton.addEventListener('click', closePopupHandler);
+
+function formSubmitHandler(evt) {
   evt.preventDefault();
 
   nameItem.textContent = nameInput.value;
   captionItem.textContent = jobInput.value;
 
-  popupItem.classList.remove('popup_opened');
+  closePopupHandler();
 }
 
 formElement.addEventListener('submit', formSubmitHandler);

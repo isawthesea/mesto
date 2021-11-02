@@ -16,10 +16,7 @@
   <main>
 
     <section class="profile">
-      <div class="profile__avatar-cover">
-        <img src="./images/avatar.png" alt="Изображение пользователя">
-
-      </div>
+      <img class="profile__avatar-cover" src="./images/avatar.png" alt="Изображение пользователя">
       <div class="profile__container">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -32,48 +29,50 @@
 
     <section class="pictures">
       <ul class="pictures__list">
-        <li class="pictures__back"><img class="pictures__item" src="./images/pershin-karachaevsk.jpg"
-            alt="Город Карачаевск">
+        <li class="pictures__back">
+          <img class="pictures__item" src="./images/pershin-karachaevsk.jpg" alt="Город Карачаевск">
           <div class="pictures__cover">
-            <p class="pictures__title">Карачаевск</p>
+            <h2 class="pictures__title">Карачаевск</h2>
             <button class="pictures__like" type="button"></button>
           </div>
         </li>
 
-        <li class="pictures__back"><img class="pictures__item" src="./images/pershin-elbrus.jpg" alt="Гора Эльбрус">
+        <li class="pictures__back">
+          <img class="pictures__item" src="./images/pershin-elbrus.jpg" alt="Гора Эльбрус">
           <div class="pictures__cover">
-            <p class="pictures__title">Гора Эльбрус</p>
+            <h2 class="pictures__title">Гора Эльбрус</h2>
             <button class="pictures__like" type="button"></button>
           </div>
         </li>
 
-        <li class="pictures__back"><img class="pictures__item" src="./images/pershin-dombay.jpg"
-            alt="Горный хребет Домбай">
+        <li class="pictures__back">
+          <img class="pictures__item" src="./images/pershin-dombay.jpg" alt="Горный хребет Домбай">
           <div class="pictures__cover">
-            <p class="pictures__title">Домбай</p>
+            <h2 class="pictures__title">Домбай</h2>
             <button class="pictures__like" type="button"></button>
           </div>
         </li>
 
-        <li class="pictures__back"><img class="pictures__item" src="./images/pershin-elbrus.jpg" alt="Гора Эльбрус">
+        <li class="pictures__back">
+          <img class="pictures__item" src="./images/pershin-elbrus.jpg" alt="Гора Эльбрус">
           <div class="pictures__cover">
-            <p class="pictures__title">Гора Эльбрус</p>
+            <h2 class="pictures__title">Гора Эльбрус</h2>
             <button class="pictures__like" type="button"></button>
           </div>
         </li>
 
-        <li class="pictures__back"><img class="pictures__item" src="./images/pershin-dombay.jpg"
-            alt="Горный хребет Домбай">
+        <li class="pictures__back">
+          <img class="pictures__item" src="./images/pershin-dombay.jpg" alt="Горный хребет Домбай">
           <div class="pictures__cover">
-            <p class="pictures__title">Домбай</p>
+            <h2 class="pictures__title">Домбай</h2>
             <button class="pictures__like" type="button"></button>
           </div>
         </li>
 
-        <li class="pictures__back"><img class="pictures__item" src="./images/pershin-karachaevsk.jpg"
-            alt="Город Карачаевск">
+        <li class="pictures__back">
+          <img class="pictures__item" src="./images/pershin-karachaevsk.jpg" alt="Город Карачаевск">
           <div class="pictures__cover">
-            <p class="pictures__title">Карачаево-Черкессия</p>
+            <h2 class="pictures__title">Карачаево-Черкессия</h2>
             <button class="pictures__like" type="button"></button>
           </div>
         </li>
@@ -85,18 +84,18 @@
   </footer>
 
   <div class="popup">
-    <section class="popup__container">
-      <button class="popup__close-button" type="reset" aria-label="Закрыть окно"></button>
-      <section class="popup__content">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
+      <div class="popup__content">
         <h3 class="popup__header">Редактировать профиль</h3>
         <form class="popup__form" name="name">
           <input class="popup__form-text-type-name" type="text" name="name">
           <input class="popup__form-text-type-caption" type="text" name="caption">
-          <input type="submit" class="popup__button" value="Сохранить" name="submit">
+          <button type="submit" class="popup__button" aria-label="Сохранить" name="submit">Сохранить</button>
         </form>
 
-      </section>
-    </section>
+      </div>
+    </div>
   </div>
 
   <script src="./scripts/index.js"></script>
