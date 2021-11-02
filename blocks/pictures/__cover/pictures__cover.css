@@ -5,6 +5,6 @@
   display: flex;
   justify-content: space-between;
   max-width: 240px;
-  /* height: 23px; */
-  margin: 25px 15px 31px 21px;
+  margin: 14px 15px 26px 21px;
+  padding-top: 10px;
 }
