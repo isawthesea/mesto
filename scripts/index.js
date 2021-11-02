@@ -6,8 +6,8 @@ const nameItem = document.querySelector('.profile__name');
 const captionItem = document.querySelector('.profile__caption');
 
 const formElement = document.querySelector('.popup__form')
-const nameInput = formElement.querySelector('.popup__form-text-type-name')
-const jobInput = formElement.querySelector('.popup__form-text-type-caption')
+const nameInput = formElement.querySelector('.popup__input_text-name')
+const jobInput = formElement.querySelector('.popup__input_text-caption')
 
 function openPopupHandler() {
   nameInput.value = nameItem.textContent;

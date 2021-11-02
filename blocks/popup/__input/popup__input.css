@@ -1,4 +1,4 @@
-.popup__form-text-type-caption {
+.popup__input {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -8,11 +8,11 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   outline-color: transparent;
   padding-top: 30px;
-  padding-bottom: 9px;
+  padding-bottom: 8px;
 }
 
 @media screen and (max-width: 580px) {
-  .popup__form-text-type-caption {
+  .popup__input {
     width: 238px;
     margin-left: 22px;
   }
