@@ -1,7 +1,7 @@
 .pictures__like {
   background-image: url(../../../images/heart.svg);
   width: 22px;
-  height: 19px;
+  min-height: 19px;
   background-color: transparent;
   background-position: center;
   box-sizing: border-box;

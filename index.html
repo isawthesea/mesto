@@ -36,7 +36,7 @@
             alt="Город Карачаевск">
           <div class="pictures__cover">
             <p class="pictures__title">Карачаевск</p>
-            <button class="pictures__like"></button>
+            <button class="pictures__like" type="button"></button>
           </div>
         </li>
       </ul>
@@ -44,7 +44,7 @@
         <li class="pictures__back"><img class="pictures__item" src="./images/pershin-elbrus.jpg" alt="Гора Эльбрус">
           <div class="pictures__cover">
             <p class="pictures__title">Гора Эльбрус</p>
-            <button class="pictures__like"></button>
+            <button class="pictures__like" type="button"></button>
           </div>
         </li>
       </ul>
@@ -53,7 +53,7 @@
             alt="Горный хребет Домбай">
           <div class="pictures__cover">
             <p class="pictures__title">Домбай</p>
-            <button class="pictures__like"></button>
+            <button class="pictures__like" type="button"></button>
           </div>
         </li>
       </ul>
@@ -61,7 +61,7 @@
         <li class="pictures__back"><img class="pictures__item" src="./images/pershin-elbrus.jpg" alt="Гора Эльбрус">
           <div class="pictures__cover">
             <p class="pictures__title">Гора Эльбрус</p>
-            <button class="pictures__like"></button>
+            <button class="pictures__like" type="button"></button>
           </div>
         </li>
       </ul>
@@ -70,7 +70,7 @@
             alt="Горный хребет Домбай">
           <div class="pictures__cover">
             <p class="pictures__title">Домбай</p>
-            <button class="pictures__like"></button>
+            <button class="pictures__like" type="button"></button>
           </div>
         </li>
       </ul>
@@ -79,7 +79,7 @@
             alt="Город Карачаевск">
           <div class="pictures__cover">
             <p class="pictures__title">Карачаево-Черкессия</p>
-            <button class="pictures__like"></button>
+            <button class="pictures__like" type="button"></button>
           </div>
         </li>
       </ul>
@@ -91,13 +91,13 @@
 
   <div class="popup">
     <section class="popup__container">
-      <button class="popup__close-button" aria-label="Закрыть окно"></button>
+      <button class="popup__close-button" type="reset" aria-label="Закрыть окно"></button>
       <section class="popup__content">
         <h3 class="popup__header">Редактировать профиль</h3>
-        <form class="popup__form">
-          <input class="popup__form-text-type-name" type="text" placeholder="Жак-Ив Кусто">
-          <input class="popup__form-text-type-caption" type="text" placeholder="Исследователь океана">
-          <input type="submit" class="popup__button" value="Сохранить">
+        <form class="popup__form" name="name">
+          <input class="popup__form-text-type-name" type="text" name="name">
+          <input class="popup__form-text-type-caption" type="text" name="caption">
+          <input type="submit" class="popup__button" value="Сохранить" name="submit">
         </form>
 
       </section>

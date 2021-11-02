@@ -1,4 +1,4 @@
-/* @font-face {
+ @font-face {
   font-family: 'Inter';
   font-style:  normal;
   font-weight: 400;
@@ -6,15 +6,6 @@
   src: url("Inter-Regular.woff2?v=3.19") format("woff2"),
        url("Inter-Regular.woff?v=3.19") format("woff");
 }
-
-@font-face {
-  font-family: 'Inter';
-  font-style:  normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("Inter-Bold.woff2?v=3.19") format("woff2"),
-       url("Inter-Bold.woff?v=3.19") format("woff");
-} */
 
 @font-face {
   font-family: 'Inter';
@@ -34,14 +25,6 @@
        url("Inter-Medium.woff?v=3.19") format("woff");
 }
 
-/* @font-face {
-  font-family: 'Inter';
-  font-style:  italic;
-  font-weight: 500;
-  font-display: swap;
-  src: url("Inter-MediumItalic.woff2?v=3.19") format("woff2"),
-       url("Inter-MediumItalic.woff?v=3.19") format("woff");
-} */
 
 
 
