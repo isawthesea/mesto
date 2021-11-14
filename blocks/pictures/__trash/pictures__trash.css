@@ -1,0 +1,22 @@
+.pictures__trash {
+  background-image: url(../../../images/trash.svg);
+  width: 18px;
+  height: 19px;
+  background-color: transparent;
+  background-position: center;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  bottom: 341px;
+  left: 244px;
+
+}
+
+.pictures__trash:hover {
+  opacity: .5;
+}
+
+}
