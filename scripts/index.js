@@ -43,6 +43,8 @@ const addCardSubmitBtn = addCardForm.querySelector('.popup__button');
 const addCardFormName = addCardForm.querySelector('.popup__input_text_photo-name');
 const addCardFormLink = addCardForm.querySelector('.popup__input_text_photo-caption');
 
+const pictureZoomPopup = document.querySelector('.popup_zoom-picture');
+
 //открытие второго попапа
 const openPopupAdd = document.querySelector('.profile__add-button');
 
@@ -103,6 +105,7 @@ const initialCards = [
 const createPicturesDomNode = (item) => {
   const backTemplate = cardTemplate.querySelector('.pictures__back').cloneNode(true);
   backTemplate.querySelector('.pictures__item').src = item.link;
+  backTemplate.querySelector('.pictures__item').alt = item.name;
   backTemplate.querySelector('.pictures__title').textContent = item.name;
 
   const pictureDeleteBtn = backTemplate.querySelector('.pictures__trash')
@@ -119,16 +122,35 @@ const fillAndApply = (item) => {
   // заполняем шаблон - name и link
   const picture = createPicturesDomNode(item);
   const pictureLikeBtn = picture.querySelector('.pictures__like');
+  const pictureImg = picture.querySelector('.pictures__item');
 
   const pictureLikeDislikeHandler = () => {
     pictureLikeBtn.classList.toggle('pictures__like-active');
   }
-
   pictureLikeBtn.addEventListener('click', pictureLikeDislikeHandler);
+
+  const pictureZoomHandler = () => {
+    // вставить ее в картинку в попапе
+    const pictureZoomPopupImg = pictureZoomPopup.querySelector('.popup__picture');
+    pictureZoomPopupImg.src = pictureImg.src;
+
+    // показать попап (добавить ему класс)
+    pictureZoomPopup.classList.add('popup_opened');
+  }
+  pictureImg.addEventListener('click', pictureZoomHandler);
 
   // вставляем шаблон в верстку
   picturesList.prepend(picture);
 }
+
+
+function closePopupZoomHandler() {
+  pictureZoomPopup.classList.remove('popup_opened');
+}
+
+const closeButtonZoom = document.querySelector('.popup__close-button_zoom-picture');
+closeButtonZoom.addEventListener('click', closePopupZoomHandler);
+
 
 // перебор массива
 initialCards.forEach((item) => {
@@ -152,9 +174,3 @@ const addCardSubmitHandler = (evt) => {
 };
 
 addCardForm.addEventListener('submit', addCardSubmitHandler);
-
-// LIKE
-
-
-
-

@@ -29,54 +29,6 @@
 
     <section class="pictures">
       <ul class="pictures__list">
-        <li class="pictures__back">
-          <img class="pictures__item" src="./images/pershin-karachaevsk.jpg" alt="Город Карачаевск">
-          <div class="pictures__cover">
-            <h2 class="pictures__title">Карачаевск</h2>
-            <button class="pictures__like" type="button"></button>
-            </div>
-            <button class="pictures__trash" type="button"></button>
-        </li>
-
-        <li class="pictures__back">
-          <img class="pictures__item" src="./images/pershin-elbrus.jpg" alt="Гора Эльбрус">
-          <div class="pictures__cover">
-            <h2 class="pictures__title">Гора Эльбрус</h2>
-            <button class="pictures__like" type="button"></button>
-          </div>
-        </li>
-
-        <li class="pictures__back">
-          <img class="pictures__item" src="./images/pershin-dombay.jpg" alt="Горный хребет Домбай">
-          <div class="pictures__cover">
-            <h2 class="pictures__title">Домбай</h2>
-            <button class="pictures__like" type="button"></button>
-          </div>
-        </li>
-
-        <li class="pictures__back">
-          <img class="pictures__item" src="./images/pershin-elbrus.jpg" alt="Гора Эльбрус">
-          <div class="pictures__cover">
-            <h2 class="pictures__title">Гора Эльбрус</h2>
-            <button class="pictures__like" type="button"></button>
-          </div>
-        </li>
-
-        <li class="pictures__back">
-          <img class="pictures__item" src="./images/pershin-dombay.jpg" alt="Горный хребет Домбай">
-          <div class="pictures__cover">
-            <h2 class="pictures__title">Домбай</h2>
-            <button class="pictures__like" type="button"></button>
-          </div>
-        </li>
-
-        <li class="pictures__back">
-          <img class="pictures__item" src="./images/pershin-karachaevsk.jpg" alt="Город Карачаевск">
-          <div class="pictures__cover">
-            <h2 class="pictures__title">Карачаево-Черкессия</h2>
-            <button class="pictures__like" type="button"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
@@ -106,22 +58,31 @@
         <h3 class="popup__header">Новое место</h3>
         <form class="popup__form" name="name">
           <input class="popup__input popup__input_text_photo-name" type="text" name="name" placeholder="Название">
-          <input class="popup__input popup__input_text_photo-caption" type="text" name="caption" placeholder="Ссылка на картинку">
-          <button type="submit" class="popup__button" aria-label="Создать" name="submit">Создать</button>
+          <input class="popup__input popup__input_text_photo-caption" type="text" name="caption"
+            placeholder="Ссылка на картинку">
         </form>
-
+        <button type="submit" class="popup__button" aria-label="Создать" name="submit">Создать</button>
       </div>
+    </div>
+  </div>
+
+  <div class="popup popup_zoom-picture">
+    <div class="popup__figure-container popup__overlay">
+      <figure class="popup__figure"><img class="popup__picture" src="" alt="#">
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+      <button class="popup__close-button popup__close-button_zoom-picture" type="button"></button>
     </div>
   </div>
 
   <template id="pictures">
     <li class="pictures__back">
-      <img class="pictures__item" src="./images/pershin-karachaevsk.jpg" alt="Город Карачаевск">
+      <img class="pictures__item" src="" alt="">
       <div class="pictures__cover">
-        <h2 class="pictures__title">Карачаевск</h2>
+        <h2 class="pictures__title"></h2>
         <button class="pictures__like" type="button"></button>
       </div>
-        <button class="pictures__trash" type="button"></button>
+      <button class="pictures__trash" type="button"></button>
     </li>
   </template>
 
