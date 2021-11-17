@@ -38,7 +38,7 @@ formElement.addEventListener('submit', formSubmitHandler);
 const picturesList = document.querySelector('.pictures__list');
 const cardTemplate = document.querySelector('#pictures').content;
 
-const addCardForm = document.querySelector('.popup__type-photo');
+const addCardForm = document.querySelector('.popup_type-photo');
 const addCardSubmitBtn = addCardForm.querySelector('.popup__button');
 const addCardFormName = addCardForm.querySelector('.popup__input_text_photo-name');
 const addCardFormLink = addCardForm.querySelector('.popup__input_text_photo-caption');
