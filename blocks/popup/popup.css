@@ -10,4 +10,6 @@
   right: 0;
   left: 0;
   visibility: hidden;
+  transition: visibility 0s, opacity 0.5s linear;
+  opacity: 0;
 }
