@@ -1,6 +1,6 @@
 const popupItem = document.querySelector('.popup');
 const closeButton = popupItem.querySelector('.popup__close-button');
-const openPopup = document.querySelector('.profile__edit-button');
+const profileEditPopup = document.querySelector('.profile__edit-button');
 
 const nameItem = document.querySelector('.profile__name');
 const captionItem = document.querySelector('.profile__caption');
@@ -9,17 +9,25 @@ const formElement = document.querySelector('.popup__form')
 const nameInput = formElement.querySelector('.popup__input_text_name')
 const jobInput = formElement.querySelector('.popup__input_text_caption')
 
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
+
 function openPopupHandler() {
   nameInput.value = nameItem.textContent;
   jobInput.value = captionItem.textContent;
-  popupItem.classList.add('popup_opened');
+  openPopup(popupItem);
 }
 
 function closePopupHandler() {
-  popupItem.classList.remove('popup_opened');
+  closePopup(popupItem);
 }
 
-openPopup.addEventListener('click', openPopupHandler);
+profileEditPopup.addEventListener('click', openPopupHandler);
 closeButton.addEventListener('click', closePopupHandler);
 
 function formSubmitHandler(evt) {
@@ -28,7 +36,7 @@ function formSubmitHandler(evt) {
   nameItem.textContent = nameInput.value;
   captionItem.textContent = jobInput.value;
 
-  closePopupHandler();
+  closePopup(popupItem);
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
@@ -55,7 +63,7 @@ const addCardFormClean = () => {
 
 function openPopupAddHandler() {
   addCardFormClean();
-  addCardForm.classList.add('popup_opened');
+  openPopup(addCardForm);
 }
 
 openPopupAdd.addEventListener('click', openPopupAddHandler);
@@ -65,7 +73,7 @@ openPopupAdd.addEventListener('click', openPopupAddHandler);
 const closeButtonAdd = addCardForm.querySelector('.popup__close-button');
 
 function closePopupAddHandler() {
-  addCardForm.classList.remove('popup_opened');
+  closePopup(addCardForm);
   addCardFormClean();
 }
 
@@ -138,8 +146,8 @@ const fillAndApply = (item) => {
     pictureZoomPopupImg.alt = pictureImg.alt;
     pictureCaption.textContent = pictureImg.alt;
 
-    // показать попап (добавить ему класс)
-    pictureZoomPopup.classList.add('popup_opened');
+    // показать попап
+    openPopup(pictureZoomPopup);
   }
   pictureImg.addEventListener('click', pictureZoomHandler);
 
@@ -149,7 +157,7 @@ const fillAndApply = (item) => {
 
 
 function closePopupZoomHandler() {
-  pictureZoomPopup.classList.remove('popup_opened');
+  closePopup(pictureZoomPopup);
 }
 
 const closeButtonZoom = document.querySelector('.popup__close-button_zoom-picture');
