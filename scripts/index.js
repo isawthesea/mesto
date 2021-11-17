@@ -124,6 +124,8 @@ const fillAndApply = (item) => {
   const pictureLikeBtn = picture.querySelector('.pictures__like');
   const pictureImg = picture.querySelector('.pictures__item');
 
+  const pictureCaption = document.querySelector('.popup__caption');
+
   const pictureLikeDislikeHandler = () => {
     pictureLikeBtn.classList.toggle('pictures__like-active');
   }
@@ -133,6 +135,8 @@ const fillAndApply = (item) => {
     // вставить ее в картинку в попапе
     const pictureZoomPopupImg = pictureZoomPopup.querySelector('.popup__picture');
     pictureZoomPopupImg.src = pictureImg.src;
+    pictureZoomPopupImg.alt = pictureImg.alt;
+    pictureCaption.textContent = pictureImg.alt;
 
     // показать попап (добавить ему класс)
     pictureZoomPopup.classList.add('popup_opened');
