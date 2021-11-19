@@ -30,7 +30,7 @@ function closePopupHandler() {
 profileEditPopup.addEventListener('click', openPopupHandler);
 closeButton.addEventListener('click', closePopupHandler);
 
-function formSubmitHandler(evt) {
+function handleFormSubmit(evt) {
   evt.preventDefault();
 
   nameItem.textContent = nameInput.value;
@@ -39,14 +39,15 @@ function formSubmitHandler(evt) {
   closePopup(popupItem);
 }
 
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', handleFormSubmit);
 
 
 // открытие попапа для карточек
 const picturesList = document.querySelector('.pictures__list');
 const cardTemplate = document.querySelector('#pictures').content;
 
-const addCardForm = document.querySelector('.popup_type-photo');
+const addCardPopup = document.querySelector('.popup_type-photo');
+const addCardForm = document.querySelector('.popup__form_type-add');
 const addCardSubmitBtn = addCardForm.querySelector('.popup__button');
 const addCardFormName = addCardForm.querySelector('.popup__input_text_photo-name');
 const addCardFormLink = addCardForm.querySelector('.popup__input_text_photo-caption');
@@ -56,14 +57,9 @@ const pictureZoomPopup = document.querySelector('.popup_zoom-picture');
 //открытие второго попапа
 const openPopupAdd = document.querySelector('.profile__add-button');
 
-const addCardFormClean = () => {
-  addCardFormName.value = '';
-  addCardFormLink.value = '';
-}
-
 function openPopupAddHandler() {
-  addCardFormClean();
-  openPopup(addCardForm);
+  addCardForm.reset();
+  openPopup(addCardPopup);
 }
 
 openPopupAdd.addEventListener('click', openPopupAddHandler);
@@ -73,8 +69,7 @@ openPopupAdd.addEventListener('click', openPopupAddHandler);
 const closeButtonAdd = addCardForm.querySelector('.popup__close-button');
 
 function closePopupAddHandler() {
-  closePopup(addCardForm);
-  addCardFormClean();
+  closePopup(addCardPopup);
 }
 
 closeButtonAdd.addEventListener('click', closePopupAddHandler);
@@ -112,44 +107,45 @@ const initialCards = [
 
 const createPicturesDomNode = (item) => {
   const backTemplate = cardTemplate.querySelector('.pictures__back').cloneNode(true);
-  backTemplate.querySelector('.pictures__item').src = item.link;
-  backTemplate.querySelector('.pictures__item').alt = item.name;
+  const pictureImg = backTemplate.querySelector('.pictures__item');
+  const pictureLikeBtn = backTemplate.querySelector('.pictures__like');
+  const pictureDeleteBtn = backTemplate.querySelector('.pictures__trash')
+
+  pictureImg.src = item.link;
+  pictureImg.alt = item.name;
   backTemplate.querySelector('.pictures__title').textContent = item.name;
 
-  const pictureDeleteBtn = backTemplate.querySelector('.pictures__trash')
+  pictureLikeBtn.addEventListener('click', pictureLikeDislikeHandler);
+  pictureImg.addEventListener('click', pictureZoomHandler);
+
   pictureDeleteBtn.addEventListener('click', () => {
-  backTemplate.remove();
+    backTemplate.remove();
   });
 
   return backTemplate;
 }
 
+const pictureLikeDislikeHandler = (evt) => {
+  evt.target.classList.toggle('pictures__like-active');
+}
+
+const pictureZoomHandler = (evt) => {
+  // вставить ее в картинку в попапе
+  const pictureCaption = document.querySelector('.popup__caption');
+  const pictureZoomPopupImg = pictureZoomPopup.querySelector('.popup__picture');
+
+  pictureZoomPopupImg.src = evt.target.src;
+  pictureZoomPopupImg.alt = evt.target.alt;
+  pictureCaption.textContent = evt.target.alt;
+
+  // показать попап
+  openPopup(pictureZoomPopup);
+}
 
 
-const fillAndApply = (item) => {
+const renderCard = (item) => {
   // заполняем шаблон - name и link
   const picture = createPicturesDomNode(item);
-  const pictureLikeBtn = picture.querySelector('.pictures__like');
-  const pictureImg = picture.querySelector('.pictures__item');
-
-  const pictureCaption = document.querySelector('.popup__caption');
-
-  const pictureLikeDislikeHandler = () => {
-    pictureLikeBtn.classList.toggle('pictures__like-active');
-  }
-  pictureLikeBtn.addEventListener('click', pictureLikeDislikeHandler);
-
-  const pictureZoomHandler = () => {
-    // вставить ее в картинку в попапе
-    const pictureZoomPopupImg = pictureZoomPopup.querySelector('.popup__picture');
-    pictureZoomPopupImg.src = pictureImg.src;
-    pictureZoomPopupImg.alt = pictureImg.alt;
-    pictureCaption.textContent = pictureImg.alt;
-
-    // показать попап
-    openPopup(pictureZoomPopup);
-  }
-  pictureImg.addEventListener('click', pictureZoomHandler);
 
   // вставляем шаблон в верстку
   picturesList.prepend(picture);
@@ -165,14 +161,14 @@ closeButtonZoom.addEventListener('click', closePopupZoomHandler);
 
 
 // перебор массива
-initialCards.forEach((item) => {
-  fillAndApply(item);
+initialCards.reverse().forEach((item) => {
+  renderCard(item);
 });
 
 // обрабатываем сабмит
 
 
-const addCardSubmitHandler = (evt) => {
+const handleSubmitAddCard = (evt) => {
   evt.preventDefault();
 
   // данные из формы вставить в шаблон
@@ -180,9 +176,9 @@ const addCardSubmitHandler = (evt) => {
     name: addCardFormName.value,
     link: addCardFormLink.value
   };
-  fillAndApply(item);
+  renderCard(item);
 
-  closePopupAddHandler();
+  closePopup(addCardPopup);
 };
 
-addCardForm.addEventListener('submit', addCardSubmitHandler);
+addCardForm.addEventListener('submit', handleSubmitAddCard);

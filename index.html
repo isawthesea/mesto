@@ -36,7 +36,7 @@
     <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
+  <div class="popup popup_type-profile">
     <div class="popup__container">
       <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
       <div class="popup__content">
@@ -52,10 +52,10 @@
 
   <div class="popup popup_type-photo">
     <div class="popup__container">
-      <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
       <div class="popup__content">
         <h3 class="popup__header">Новое место</h3>
-        <form class="popup__form" name="name">
+        <form class="popup__form popup__form_type-add" name="name">
+          <button class="popup__close-button" type="button" aria-label="Закрыть окно"></button>
           <input class="popup__input popup__input_text_photo-name" type="text" name="name" placeholder="Название">
           <input class="popup__input popup__input_text_photo-caption" type="text" name="caption"
             placeholder="Ссылка на картинку">
