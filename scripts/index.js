@@ -17,7 +17,9 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
+// Обработчик события открытия попапа редактирования профиля
 function openPopupHandler() {
+  // Предзаполняем данные
   nameInput.value = nameItem.textContent;
   jobInput.value = captionItem.textContent;
   openPopup(popupItem);
@@ -27,12 +29,16 @@ function closePopupHandler() {
   closePopup(popupItem);
 }
 
+// Навешиваем обработчики событий
 profileEditPopup.addEventListener('click', openPopupHandler);
 closeButton.addEventListener('click', closePopupHandler);
 
+// Обработчик события сабмита формы редактирования профиля
 function handleFormSubmit(evt) {
+  // Отменяем поведение по умолчанию
   evt.preventDefault();
 
+  // Вставляем значения из полей формы на страницу в блок профиля
   nameItem.textContent = nameInput.value;
   captionItem.textContent = jobInput.value;
 
@@ -106,6 +112,7 @@ const initialCards = [
 
 
 const createPicturesDomNode = (item) => {
+  // Заполняем шаблон и навешиваем обработчики событий
   const backTemplate = cardTemplate.querySelector('.pictures__back').cloneNode(true);
   const pictureImg = backTemplate.querySelector('.pictures__item');
   const pictureLikeBtn = backTemplate.querySelector('.pictures__like');
@@ -126,14 +133,16 @@ const createPicturesDomNode = (item) => {
 }
 
 const pictureLikeDislikeHandler = (evt) => {
+  // evt.target - элемент, на котором произошло событие
   evt.target.classList.toggle('pictures__like-active');
 }
 
 const pictureZoomHandler = (evt) => {
-  // вставить ее в картинку в попапе
   const pictureCaption = document.querySelector('.popup__caption');
   const pictureZoomPopupImg = pictureZoomPopup.querySelector('.popup__picture');
 
+  // Заполняем данные для большого попапа из маленькой карточки,
+  // которая приходит в evt.target
   pictureZoomPopupImg.src = evt.target.src;
   pictureZoomPopupImg.alt = evt.target.alt;
   pictureCaption.textContent = evt.target.alt;
@@ -166,8 +175,6 @@ initialCards.reverse().forEach((item) => {
 });
 
 // обрабатываем сабмит
-
-
 const handleSubmitAddCard = (evt) => {
   evt.preventDefault();
 
