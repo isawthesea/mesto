@@ -202,3 +202,24 @@ const handleSubmitAddCard = (evt) => {
 };
 
 addCardForm.addEventListener('submit', handleSubmitAddCard);
+
+const addCardConfig = {
+  formSelector: '.popup__form_type-add',
+  inputSelector: '.popup__input',
+  buttonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputElementClass: 'popup__input_type-error',
+  errorElementClass: 'popup__input-error'
+}
+
+const editProfileConfig = {
+  formSelector: '.popup__form_type-edit',
+  inputSelector: '.popup__input',
+  buttonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputElementClass: 'popup__input_type-error',
+  errorElementClass: 'popup__input-error'
+}
+
+enableValidation(addCardConfig);
+enableValidation(editProfileConfig);
