@@ -7,9 +7,9 @@ const addCardPopup = document.querySelector('.popup_type-photo');
 const nameItem = document.querySelector('.profile__name');
 const captionItem = document.querySelector('.profile__caption');
 
-const formElement = document.querySelector('.popup__form_type-edit')
-const nameInput = formElement.querySelector('.popup__input_text_name')
-const jobInput = formElement.querySelector('.popup__input_text_caption')
+const profileEditForm = document.querySelector('.popup__form_type-edit')
+const nameInput = profileEditForm.querySelector('.popup__input_text_name')
+const jobInput = profileEditForm.querySelector('.popup__input_text_caption')
 
 function openPopup(popup) {
   popup.addEventListener('mousedown', clickOverlay);
@@ -44,7 +44,7 @@ function clickEsc(evt) {
 function openPopupHandler() {
   // Убираем информацию об ошибках
   [nameInput, jobInput].forEach((inputElement) => {
-    hideInputError(formElement, inputElement, validationConfig);
+    hideInputError(profileEditForm, inputElement, validationConfig);
   });
 
   // Предзаполняем данные
@@ -71,11 +71,11 @@ function handleFormSubmit(evt) {
   captionItem.textContent = jobInput.value;
 
   closePopup(popupItem);
-  formElement.reset();
-  toggleButtonState(formElement, validationConfig);
+  profileEditForm.reset();
+  toggleButtonState(profileEditForm, validationConfig);
 }
 
-formElement.addEventListener('submit', handleFormSubmit);
+profileEditForm.addEventListener('submit', handleFormSubmit);
 
 
 // открытие попапа для карточек
