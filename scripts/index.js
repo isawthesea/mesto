@@ -2,6 +2,8 @@ const popupItem = document.querySelector('.popup');
 const closeButton = popupItem.querySelector('.popup__close-button');
 const profileEditPopup = document.querySelector('.profile__edit-button');
 
+const addCardPopup = document.querySelector('.popup_type-photo');
+
 const nameItem = document.querySelector('.profile__name');
 const captionItem = document.querySelector('.profile__caption');
 
@@ -10,11 +12,23 @@ const nameInput = formElement.querySelector('.popup__input_text_name')
 const jobInput = formElement.querySelector('.popup__input_text_caption')
 
 function openPopup(popup) {
+  document.addEventListener('keydown', clickEsc);
   popup.classList.add('popup_opened');
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', clickEsc);
+}
+
+function clickEsc(evt) {
+  if (evt.key == 'Escape') {
+      [popupItem, addCardPopup].forEach((popup) => {
+        if (popup.classList.contains('popup_opened')) {
+          closePopup(popup);
+        }
+      });
+  }
 }
 
 // Обработчик события открытия попапа редактирования профиля
@@ -52,7 +66,6 @@ formElement.addEventListener('submit', handleFormSubmit);
 const picturesList = document.querySelector('.pictures__list');
 const cardTemplate = document.querySelector('#pictures').content;
 
-const addCardPopup = document.querySelector('.popup_type-photo');
 const addCardForm = document.querySelector('.popup__form_type-add');
 const addCardSubmitBtn = addCardForm.querySelector('.popup__button');
 const addCardFormName = addCardForm.querySelector('.popup__input_text_photo-name');
