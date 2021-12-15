@@ -1,3 +1,5 @@
+import Card from './card.js'
+
 const popupItem = document.querySelector('.popup');
 const closeButton = popupItem.querySelector('.popup__close-button');
 const profileEditPopup = document.querySelector('.profile__edit-button');
@@ -181,11 +183,11 @@ const pictureZoomHandler = (evt) => {
 
 
 const renderCard = (item) => {
-  // заполняем шаблон - name и link
-  const picture = createPicturesDomNode(item);
+  const card = new Card(item.name, item.link, '#pictures');
+  const renderedCard = card.render();
 
   // вставляем шаблон в верстку
-  picturesList.prepend(picture);
+  picturesList.prepend(renderedCard);
 }
 
 
