@@ -1,4 +1,4 @@
-export default class Card {
+class Card {
   constructor(name, link, tplSelector) {
     this._name = name;
     this._link = link;
@@ -58,3 +58,5 @@ export default class Card {
   }
 
 }
+
+export default Card;

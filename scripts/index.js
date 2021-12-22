@@ -1,4 +1,5 @@
-import Card from './card.js'
+import Card from './Card.js'
+import FormValidator from './FormValidator.js'
 
 const popupItem = document.querySelector('.popup');
 const closeButton = popupItem.querySelector('.popup__close-button');
@@ -40,6 +41,24 @@ function clickEsc(evt) {
   if (evt.key == 'Escape') {
     closeOpenedPopup();
   }
+}
+
+const hideInputError = (formElement, inputElement, config) => {
+  // Находим блок, в котором отображается ошибка.
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  inputElement.classList.remove(config.inputElementClass);
+  errorElement.classList.remove(config.errorElementClass);
+  //удаляем текст ошибки
+  errorElement.textContent = '';
+};
+
+const toggleButtonState = (formElement, config) => {
+  // Проверяем валидность формы
+  const isFormValid = formElement.checkValidity();
+  // Если форма невалидна, то присваиваем свойству disabled кнопки значение true
+  const buttonElement = formElement.querySelector(config.buttonSelector);
+  buttonElement.classList.toggle(config.inactiveButtonClass, !isFormValid) //false
+  buttonElement.disabled = !isFormValid; //true
 }
 
 // Обработчик события открытия попапа редактирования профиля
@@ -221,3 +240,23 @@ const handleSubmitAddCard = (evt) => {
 };
 
 addCardForm.addEventListener('submit', handleSubmitAddCard);
+
+const enableValidation = (config) => {
+  // находим все поля ввода
+  const formElements = document.querySelectorAll(config.formSelector);
+  formElements.forEach(function(formElement) {
+    const validator = new FormValidator(config, formElement);
+    validator.enableValidation();
+  });
+}
+
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  buttonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputElementClass: 'popup__input_type-error',
+  errorElementClass: 'popup__input-error'
+}
+
+enableValidation(validationConfig);
