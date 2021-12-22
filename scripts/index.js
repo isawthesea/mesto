@@ -1,3 +1,6 @@
+import Card from './Card.js'
+import FormValidator from './FormValidator.js'
+
 const popupItem = document.querySelector('.popup');
 const closeButton = popupItem.querySelector('.popup__close-button');
 const profileEditPopup = document.querySelector('.profile__edit-button');
@@ -38,6 +41,24 @@ function clickEsc(evt) {
   if (evt.key == 'Escape') {
     closeOpenedPopup();
   }
+}
+
+const hideInputError = (formElement, inputElement, config) => {
+  // Находим блок, в котором отображается ошибка.
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+  inputElement.classList.remove(config.inputElementClass);
+  errorElement.classList.remove(config.errorElementClass);
+  //удаляем текст ошибки
+  errorElement.textContent = '';
+};
+
+const toggleButtonState = (formElement, config) => {
+  // Проверяем валидность формы
+  const isFormValid = formElement.checkValidity();
+  // Если форма невалидна, то присваиваем свойству disabled кнопки значение true
+  const buttonElement = formElement.querySelector(config.buttonSelector);
+  buttonElement.classList.toggle(config.inactiveButtonClass, !isFormValid) //false
+  buttonElement.disabled = !isFormValid; //true
 }
 
 // Обработчик события открытия попапа редактирования профиля
@@ -181,11 +202,11 @@ const pictureZoomHandler = (evt) => {
 
 
 const renderCard = (item) => {
-  // заполняем шаблон - name и link
-  const picture = createPicturesDomNode(item);
+  const card = new Card(item.name, item.link, '#pictures');
+  const renderedCard = card.render();
 
   // вставляем шаблон в верстку
-  picturesList.prepend(picture);
+  picturesList.prepend(renderedCard);
 }
 
 
@@ -219,3 +240,23 @@ const handleSubmitAddCard = (evt) => {
 };
 
 addCardForm.addEventListener('submit', handleSubmitAddCard);
+
+const enableValidation = (config) => {
+  // находим все поля ввода
+  const formElements = document.querySelectorAll(config.formSelector);
+  formElements.forEach(function(formElement) {
+    const validator = new FormValidator(config, formElement);
+    validator.enableValidation();
+  });
+}
+
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  buttonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputElementClass: 'popup__input_type-error',
+  errorElementClass: 'popup__input-error'
+}
+
+enableValidation(validationConfig);
