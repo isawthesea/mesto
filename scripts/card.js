@@ -1,13 +1,13 @@
 class Card {
-  constructor(name, link, tplSelector) {
+  constructor(name, link, cardSelector) {
     this._name = name;
     this._link = link;
-    this._tplSelector = tplSelector;
+    this._cardSelector = cardSelector;
   }
 
   _getTemplate() {
     const cardElement = document
-      .querySelector(this._tplSelector)
+      .querySelector(this._cardSelector)
       .content
       .querySelector('.pictures__back')
       .cloneNode(true);
@@ -47,6 +47,7 @@ class Card {
 
     this._pictureDeleteBtn.addEventListener('click', () => {
       this._element.remove();
+      this._element = null;
     });
   }
 
