@@ -1,4 +1,5 @@
-import Card from './Card.js'
+import Card from './Card.js';
+import { pictureZoomPopup, openPopup, closePopup } from './Popup.js';
 import FormValidator from './FormValidator.js'
 import initialCards from './InitialCards.js';
 
@@ -15,34 +16,6 @@ const profileEditForm = document.querySelector('.popup__form_type-edit')
 const nameInput = profileEditForm.querySelector('.popup__input_text_name')
 const jobInput = profileEditForm.querySelector('.popup__input_text_caption')
 
-function openPopup(popup) {
-  popup.addEventListener('mousedown', clickOverlay);
-  document.addEventListener('keydown', clickEsc);
-  popup.classList.add('popup_opened');
-}
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', clickEsc);
-  popup.removeEventListener('mousedown', clickOverlay);
-}
-
-function clickOverlay(evt) {
-  if (evt.target.classList.contains('popup_opened')) {
-    closeOpenedPopup();
-  }
-}
-
-function closeOpenedPopup() {
-  const openedPopup = document.querySelector('.popup_opened');
-  closePopup(openedPopup);
-}
-
-function clickEsc(evt) {
-  if (evt.key == 'Escape') {
-    closeOpenedPopup();
-  }
-}
 
 // Обработчик события открытия попапа редактирования профиля
 function openPopupHandler() {
@@ -89,8 +62,6 @@ const picturesList = document.querySelector('.pictures__list');
 const addCardForm = document.querySelector('.popup__form_type-add');
 const addCardFormName = addCardForm.querySelector('.popup__input_text_photo-name');
 const addCardFormLink = addCardForm.querySelector('.popup__input_text_photo-caption');
-
-const pictureZoomPopup = document.querySelector('.popup_zoom-picture');
 
 //открытие второго попапа
 const openPopupAdd = document.querySelector('.profile__add-button');

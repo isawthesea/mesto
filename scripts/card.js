@@ -1,3 +1,5 @@
+import { pictureZoomPopup, pictureCaption, pictureZoomPopupImg, openPopup } from './Popup.js';
+
 class Card {
   constructor(name, link, cardSelector) {
     this._name = name;
@@ -31,9 +33,6 @@ class Card {
   }
 
   _zoomHandler(evt) {
-    const pictureCaption = document.querySelector('.popup__caption');
-    const pictureZoomPopupImg = pictureZoomPopup.querySelector('.popup__picture');
-
     pictureZoomPopupImg.src = evt.target.src;
     pictureZoomPopupImg.alt = evt.target.alt;
     pictureCaption.textContent = evt.target.alt;
