@@ -1,13 +1,15 @@
+import { pictureZoomPopup, pictureCaption, pictureZoomPopupImg, openPopup } from './Popup.js';
+
 class Card {
-  constructor(name, link, tplSelector) {
+  constructor(name, link, cardSelector) {
     this._name = name;
     this._link = link;
-    this._tplSelector = tplSelector;
+    this._cardSelector = cardSelector;
   }
 
   _getTemplate() {
     const cardElement = document
-      .querySelector(this._tplSelector)
+      .querySelector(this._cardSelector)
       .content
       .querySelector('.pictures__back')
       .cloneNode(true);
@@ -31,9 +33,6 @@ class Card {
   }
 
   _zoomHandler(evt) {
-    const pictureCaption = document.querySelector('.popup__caption');
-    const pictureZoomPopupImg = pictureZoomPopup.querySelector('.popup__picture');
-
     pictureZoomPopupImg.src = evt.target.src;
     pictureZoomPopupImg.alt = evt.target.alt;
     pictureCaption.textContent = evt.target.alt;
@@ -47,6 +46,7 @@ class Card {
 
     this._pictureDeleteBtn.addEventListener('click', () => {
       this._element.remove();
+      this._element = null;
     });
   }
 

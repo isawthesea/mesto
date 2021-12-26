@@ -9,16 +9,16 @@ class FormValidator {
     this._formElement.addEventListener('submit', (evt) => {evt.preventDefault()});
     const inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
     // находим кнопку отправки формы
-    this._toggleButtonState();
+    this.toggleButtonState();
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
             this._checkInputValidity(inputElement);
-            this._toggleButtonState();
+            this.toggleButtonState();
         });
     });
   }
 
-  _toggleButtonState() {
+  toggleButtonState() {
     const isFormValid = this._formElement.checkValidity();
     // Если форма невалидна, то присваиваем свойству disabled кнопки значение true
     const buttonElement = this._formElement.querySelector(this._config.buttonSelector);
@@ -28,13 +28,13 @@ class FormValidator {
 
   _checkInputValidity(inputElement) {
     if (inputElement.validity.valid) {
-      this._hideInputError(inputElement);
+      this.hideInputError(inputElement);
     } else {
       this._showInputError(inputElement, inputElement.validationMessage);
     }
   }
 
-  _hideInputError(inputElement) {
+  hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this._config.inputElementClass);
     errorElement.classList.remove(this._config.errorElementClass);
