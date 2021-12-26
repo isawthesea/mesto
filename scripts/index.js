@@ -29,6 +29,8 @@ function openPopupHandler() {
   // Предзаполняем данные
   nameInput.value = nameItem.textContent;
   jobInput.value = captionItem.textContent;
+
+  validator.toggleButtonState();
   openPopup(popupItem);
 }
 
