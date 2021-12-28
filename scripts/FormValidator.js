@@ -2,6 +2,7 @@ class FormValidator {
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
+    this._buttonElement = this._formElement.querySelector(this._config.buttonSelector);
   }
 
   enableValidation() {
@@ -9,21 +10,29 @@ class FormValidator {
     this._formElement.addEventListener('submit', (evt) => {evt.preventDefault()});
     const inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
     // находим кнопку отправки формы
-    this.toggleButtonState();
+    this._toggleButtonState();
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
             this._checkInputValidity(inputElement);
-            this.toggleButtonState();
+            this._toggleButtonState();
         });
     });
   }
 
-  toggleButtonState() {
+  enableSubmitButton() {
+    this._buttonElement.classList.toggle(this._config.inactiveButtonClass, false) //false
+    this._buttonElement.disabled = false; //true
+  }
+
+  disableSubmitButton() {
+    this._buttonElement.classList.toggle(this._config.inactiveButtonClass, true) //false
+    this._buttonElement.disabled = true; //true
+  }
+
+  _toggleButtonState() {
     const isFormValid = this._formElement.checkValidity();
     // Если форма невалидна, то присваиваем свойству disabled кнопки значение true
-    const buttonElement = this._formElement.querySelector(this._config.buttonSelector);
-    buttonElement.classList.toggle(this._config.inactiveButtonClass, !isFormValid) //false
-    buttonElement.disabled = !isFormValid; //true
+    isFormValid ? this.enableSubmitButton() : this.disableSubmitButton();
   }
 
   _checkInputValidity(inputElement) {
@@ -36,6 +45,11 @@ class FormValidator {
 
   hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
+    console.log(inputElement);
+    console.log(this._formElement);
+    console.log(inputElement.id);
+    console.log(`#${inputElement.id}-error`);
+    console.log(errorElement);
     inputElement.classList.remove(this._config.inputElementClass);
     errorElement.classList.remove(this._config.errorElementClass);
     //удаляем текст ошибки
