@@ -16,21 +16,36 @@ const profileEditForm = document.querySelector('.popup__form_type-edit')
 const nameInput = profileEditForm.querySelector('.popup__input_text_name')
 const jobInput = profileEditForm.querySelector('.popup__input_text_caption')
 
+const addCardForm = document.querySelector('.popup__form_type-add');
+const addCardFormName = addCardForm.querySelector('.popup__input_text_photo-name');
+const addCardFormLink = addCardForm.querySelector('.popup__input_text_photo-caption');
+
+const validationConfig = {
+  inputSelector: '.popup__input',
+  buttonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputElementClass: 'popup__input_type-error',
+  errorElementClass: 'popup__input-error'
+}
+
+const profileEditValidator = new FormValidator(validationConfig, profileEditForm);
+profileEditValidator.enableValidation();
+
+const addCardValidator = new FormValidator(validationConfig, addCardForm);
+addCardValidator.enableValidation();
 
 // Обработчик события открытия попапа редактирования профиля
 function openPopupHandler() {
   // Убираем информацию об ошибках
-  const validator = new FormValidator(validationConfig, profileEditForm);
-
   [nameInput, jobInput].forEach((inputElement) => {
-    validator.hideInputError(inputElement);
+    profileEditValidator.hideInputError(inputElement);
   });
 
   // Предзаполняем данные
   nameInput.value = nameItem.textContent;
   jobInput.value = captionItem.textContent;
 
-  validator.toggleButtonState();
+  profileEditValidator.enableSubmitButton();
   openPopup(popupItem);
 }
 
@@ -51,8 +66,7 @@ function handleFormSubmit() {
   closePopup(popupItem);
   profileEditForm.reset();
 
-  const validator = new FormValidator(validationConfig, profileEditForm);
-  validator.toggleButtonState();
+  profileEditValidator.disableSubmitButton();
 }
 
 profileEditForm.addEventListener('submit', handleFormSubmit);
@@ -60,10 +74,6 @@ profileEditForm.addEventListener('submit', handleFormSubmit);
 
 // открытие попапа для карточек
 const picturesList = document.querySelector('.pictures__list');
-
-const addCardForm = document.querySelector('.popup__form_type-add');
-const addCardFormName = addCardForm.querySelector('.popup__input_text_photo-name');
-const addCardFormLink = addCardForm.querySelector('.popup__input_text_photo-caption');
 
 //открытие второго попапа
 const openPopupAdd = document.querySelector('.profile__add-button');
@@ -122,24 +132,7 @@ const handleSubmitAddCard = () => {
   closePopup(addCardPopup);
   addCardForm.reset();
 
-  const validator = new FormValidator(validationConfig, addCardForm);
-  validator.toggleButtonState();
+  addCardValidator.disableSubmitButton();
 };
 
 addCardForm.addEventListener('submit', handleSubmitAddCard);
-
-const enableValidation = (formElement, config) => {
-  const validator = new FormValidator(config, formElement);
-  validator.enableValidation();
-}
-
-const validationConfig = {
-  inputSelector: '.popup__input',
-  buttonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputElementClass: 'popup__input_type-error',
-  errorElementClass: 'popup__input-error'
-}
-
-enableValidation(addCardForm, validationConfig);
-enableValidation(profileEditForm, validationConfig);
